@@ -1,0 +1,204 @@
+<html>
+<head><title>REGISTRATION FORM</title>
+<style>
+body
+{
+background-image:url("eat.jpg");
+}
+h2{
+color:white;}
+
+#form button{
+padding: 10px;
+margin-top: 10px;
+width: 15%;
+color: white;
+background-color:blue;
+border: none;
+border-radius: 4px;
+margin-left: 530px;
+}
+
+label{
+display: inline-block;
+width: 180px;
+color:white;
+font-family: sans-serif;
+
+}
+.input1 input{
+width: 20%;
+padding: 7px;
+}
+
+.input2 input{
+width: 20%;
+padding: 7px;
+}
+.input3 input{
+width: 20%;
+padding: 6.5px;
+}
+.input3 label{
+width: 150px;
+}
+.gender label{
+width: 12%;
+}
+
+.input4 select{
+width: 20%;
+padding: 7px;
+}
+.input5 select{
+width: 20%;
+padding: 7px;
+}
+.input6 input{
+width: 2%;
+padding: 0px;
+}
+.input6 label{
+width: 11%;
+color:white;
+}
+
+.input7 input{
+width: 20%;
+padding: 7px;
+}
+.input8 input{
+width: 20%;
+padding: 7px;
+}
+
+
+
+</style>
+<br>
+<br>
+<center><h2>STUDENT REGISTRATION FORM</h2></center>
+<body>
+<form id="form" action="/">
+<div class="input1"><br>
+<label> FirstName</label> 
+<input type="text"  id="firstname" name="firstname"  placeholder="Firstname"><br><br>
+<div class="error"></div>
+</div>
+<div class="input2">
+<label>LastName</label>
+<input type="text"  id="Lasttname" name="Lastname"  placeholder="Lastname"><br><br>
+<div class="error"></div>
+</div>
+<div class="gender">
+<label>Gender</label> &nbsp;&nbsp;
+<input type="radio" id="Male" name="Male" value="Male" checked="checked"><label>Male</label>
+<input type="radio" id="Female" name="Female" value="Female" checked="checked"><label>Female</label><br><br>
+</div>
+<div class="input3">
+<label>DOB</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="date" id="DOB" name="DOB" value="DOB"><br><br>
+</div>
+<div class="input4">
+<label>HighestQualification</label>
+<select name="Course" id="Course" placeholder="Course">
+
+<option value="CS">CS</option>
+<option value="CS">BCA</option>
+<option value="CS">BCOM</option>
+<option value="CS">PHYSICS</option>
+</select>
+</div>
+<div class="input5"><br>
+<label>Specialization</label>
+<select name="Specialization" id="Specialization" placeholder="Specialization"><br><br>
+<option value="CS">Computer Application</option>
+<option value="CS">Accounts</option>
+<option value="CS"></option>
+<option value="CS">Science</option>
+</select>
+</div>
+<div class="input6"><br>
+<label>Languages Known</label>
+<input type="checkbox" id="Languages Known" name="Languages Known"><label>Tamil</label>
+<input type="checkbox" id="Languages Known" name="Languages Known"><label>English</label>
+<input type="checkbox" id="Languages Known" name="Languages Known"><label>Hindi</label>
+<input type="checkbox" id="Languages Known" name="Languages Known"><label>Malayalam</label>
+</div><br>
+<div class="input7">
+<label>E-mail</label>
+<input type="text" id="email" name="email" placeholder="Enter the Email">
+<small>Error Message</small>
+</div>
+<div class="input8"><br>
+<label>Mobile.No</label>
+<input type="text" id="mobileno" name="mobileno" placeholder="Please enter your mobilenumber">
+</div><br><br>
+<button type="button">SUBMIT</button>
+</form>
+
+<script>
+
+const form=document.getElementById("form");
+const Lastname=document.getElementById("Lastname");
+const email=document.getElementById("email");
+const mobileno=document.getElementById("mobileno");
+
+form.addEventListener('SUBMIT',e =>{
+e.preventDefault();
+checkInput();
+});
+
+function checkInput()
+{
+	const LastnameValue=Lastname.value.trim();
+	const emailValue=email.value.trim();
+	const mobilenoValue=mobileno.value.trim();
+		
+		if(Lastname === ''){
+			setError(Lastname, 'Lastname cannot be Blank');
+		}
+		else{
+			setSuccess(Lastname);
+		}
+		
+		if(emailValue === ''){
+			setError(email, 'Email cannot be Blank');
+		}
+		else if(!isEmail(emailValue))
+		{
+			setError(email, 'Not a valid Email');
+		}
+		else{
+			setSuccess(email);
+			 
+		}
+		
+		if(mobileno === ''){
+			setError(mobileno, 'Mobileno cannot be Blank');
+		}
+		else{
+			setSuccess(mobileno);
+		}
+
+
+
+
+}
+function setError(input, message){
+	const formControl = input.parentElelment;
+	const small = formControl.querySelector('small');
+	small.innerText=message;
+	
+}
+function setSuccess(){
+	const formControl=input.parentElelment;
+}
+function isEmail(email){
+	return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+}
+ 
+</script>
+</body>
+</head>
+</html>
