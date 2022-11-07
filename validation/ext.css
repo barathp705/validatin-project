@@ -1,0 +1,22 @@
+Body {
+font-family:sans-serif;
+text-align:center;
+}
+button { 
+background-color:blue; 
+color: white; 
+padding: 15px; 
+margin: 10px 0px; 
+border: none; 
+} 
+input[type=text], input[type=password] { 
+        width: 50%; 
+        margin: 16px ;
+        padding: 12px 20px;
+        border:none; 
+        background: #f1f1f1;
+}
+body {
+background-image: url('Z:/II sem/Internet programming lab/validation/booklg.jpg');
+background-size:100% 100%;
+}         
